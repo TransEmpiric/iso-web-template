@@ -1,0 +1,149 @@
+{
+  "name": "trans-react-client",
+  "version": "0.0.1",
+  "description": "Client: Transempiric + Universal + Isomorphic + Spring Boot + Nashorn + JWT + React + Redux + React Router + FLow + LESS + Webpack",
+  "engines": {
+    "node": "9.5.0",
+    "npm": "5.6.x"
+  },
+  "keywords": [
+    "Transempiric",
+    "Universal",
+    "Isomorphic",
+    "Spring Boot",
+    "Nashorn",
+    "JWT",
+    "React",
+    "Redux",
+    "React Router",
+    "Flow",
+    "LESS",
+    "Webpack"
+  ],
+  "dependencies": {
+    "autoprefixer": "7.1.2",
+    "axios": "^0.16.2",
+    "babel-core": "6.25.0",
+    "babel-eslint": "^8.1.0",
+    "babel-jest": "20.0.3",
+    "babel-loader": "7.1.1",
+    "babel-preset-react-app": "^3.0.2",
+    "babel-runtime": "6.26.0",
+    "case-sensitive-paths-webpack-plugin": "2.1.1",
+    "crypto-js": "^3.1.9-1",
+    "css-loader": "0.28.4",
+    "debug": "^3.1.0",
+    "dotenv": "4.0.0",
+    "eslint": "^4.6.1",
+    "eslint-config-react-app": "^2.0.0",
+    "eslint-loader": "1.9.0",
+    "eslint-plugin-flowtype": "2.35.0",
+    "eslint-plugin-import": "2.7.0",
+    "eslint-plugin-jsx-a11y": "5.1.1",
+    "eslint-plugin-react": "7.1.0",
+    "extract-text-webpack-plugin": "3.0.0",
+    "file-loader": "0.11.2",
+    "flow-bin": "^0.54.0",
+    "flow-typed": "^2.1.5",
+    "html-webpack-plugin": "2.29.0",
+    "install": "^0.10.4",
+    "jest": "20.0.4",
+    "jsencrypt": "^3.0.0-beta.1",
+    "jsonwebtoken": "^8.2.0",
+    "less": "^2.7.2",
+    "less-loader": "^4.0.5",
+    "node-rsa": "^0.4.2",
+    "npm": "^5.7.1",
+    "npm-path": "^2.0.4",
+    "object-assign": "4.1.1",
+    "postcss-flexbugs-fixes": "3.2.0",
+    "postcss-loader": "2.0.6",
+    "promise": "8.0.1",
+    "react": "^15.6.1",
+    "react-dev-utils": "^4.0.0",
+    "react-dom": "^15.6.1",
+    "react-helmet": "^5.2.0",
+    "react-hot-loader": "next",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.2.2",
+    "react-router-redux": "^4.0.8",
+    "redux": "^3.7.2",
+    "redux-form": "^7.3.0",
+    "redux-thunk": "^2.2.0",
+    "style-loader": "0.18.2",
+    "sw-precache-webpack-plugin": "0.11.4",
+    "urijs": "1.18.10",
+    "url-loader": "0.5.9",
+    "uuid": "^3.2.1",
+    "webpack": "3.5.1",
+    "webpack-dev-server": "2.7.1",
+    "webpack-manifest-plugin": "1.2.1",
+    "whatwg-fetch": "2.0.3"
+  },
+  "scripts": {
+    "flow": "flow",
+    "lint": "eslint --cache --ext .js src",
+    "build": "node bin/client.prod.build.js",
+    "dev": "node bin/client.dev.build.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TransEmpiric/iso-web-template.git"
+  },
+  "author": "Transempiric",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/transempiric/iso-web-template/issues",
+    "email": "issues@transempiric.com"
+  },
+  "homepage": "/",
+  "jest": {
+    "collectCoverageFrom": [
+      "src/**/*.{js,jsx}"
+    ],
+    "setupFiles": [
+      "<rootDir>/config/polyfill.js"
+    ],
+    "testMatch": [
+      "<rootDir>/src/**/__tests__/**/*.js?(x)",
+      "<rootDir>/src/**/?(*.)(spec|test).js?(x)"
+    ],
+    "testEnvironment": "node",
+    "testURL": "http://localhost",
+    "transform": {
+      "^.+\\.(js|jsx)$": "<rootDir>/node_modules/babel-jest",
+      "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
+      "^(?!.*\\.(js|jsx|css|json)$)": "<rootDir>/config/jest/fileTransform.js"
+    },
+    "transformIgnorePatterns": [
+      "[/\\\\]node_modules[/\\\\].+\\.(js|jsx)$"
+    ],
+    "moduleNameMapper": {
+      "^react-native$": "react-native-web"
+    },
+    "moduleFileExtensions": [
+      "web.js",
+      "js",
+      "json",
+      "web.jsx",
+      "jsx",
+      "node"
+    ]
+  },
+  "babel": {
+    "presets": [
+      "react-app"
+    ]
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "proxy": {
+    "/": {
+      "target": "http://localhost:8080",
+      "secure": false,
+      "prependPath": false
+    }
+  }
+}

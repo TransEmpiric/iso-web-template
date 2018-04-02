@@ -1,0 +1,108 @@
+#
+# Common or default application properties
+#
+
+# ===============================
+# = DATA SOURCE
+# ===============================
+# Set here configurations for the database connection
+spring:
+  datasource:
+    url: jdbc:h2:mem:template;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    platform: h2
+    driverClassName: org.h2.Driver
+    username: sa
+    password:
+#   driverClassName: com.mysql.jdbc.Driver
+#   url: jdbc:mysql://localhost:3306/template?useSSL=false
+# Keep the connection alive if idle for a long time (needed in production)
+    testWhileIdle: true
+    validationQuery: SELECT 1
+# ===============================
+# = JPA / HIBERNATE
+# ===============================
+# Show or not log for each sql query
+  jpa:
+    show-sql: true
+# Hibernate ddl auto (create, create-drop, update): with "update" the database
+# schema will be automatically updated accordingly to java entities found
+    hibernate:
+      ddl-auto: create
+# Naming strategy
+#     naming-strategy: org.hibernate.cfg.ImprovedNamingStrategy
+# Allows Hibernate to generate SQL optimized for a particular DBMS
+      properties:
+        hibernate:
+#         dialect: org.hibernate.dialect.MySQL5Dialect
+          dialect: org.hibernate.dialect.H2Dialect
+          use_sql_comments: true
+          format_sql: true
+# ===============================
+# = H2
+# ===============================
+#  h2:
+  #  console:
+     # enabled: true
+      #path: /console
+      #settings:
+        #trace: false
+        #web-allow-others: false
+# ===============================
+# = Web
+# ===============================
+# freemarker:
+#   template-loader-path: classpath:/templates
+#   suffix: .ftl
+
+# ===============================
+# = JavaMail Configuration
+# ===============================
+  mail:
+    host: peoplelikeme.com
+    port: 465
+    protocol: smtps
+    username: donald.trump@peoplelikeme.com
+    password: 5CW1MHJytrMHFfk$
+    properties:
+      mail:
+        transport:
+          protocol: smtps
+        smtps:
+          auth: true
+          timeout: 8000
+          starttls:
+            enable: true
+
+# ===============================
+# = Transview
+# ===============================
+transview:
+  pool:
+    initialPoolSize: 5
+    maxPoolSize: 10
+    showPoolStatsCSV: false
+    showPoolStatsLOG: false
+
+# ===============================
+# = Application
+# ===============================
+transempiric:
+  app:
+    name: transempiric-web-template
+    purge:
+      cron:
+        expression: 0 0 2 * * ? # 2am every day
+    support:
+      email: dev@transempiric.com
+    jwt:
+      header:
+        name: Authorization
+        prefix: "Bearer "
+      auth:
+        token:
+          secret: 3Lek77KS4GPEPk80
+          expiration:  3600 # In seconds, 1 hour
+      refresh:
+        token:
+          secret: FPDq4ShQLJr8Pv4W
+          expiration:  7200 # In seconds, 2 hours

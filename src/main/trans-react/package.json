@@ -1,0 +1,47 @@
+{
+  "name": "trans-react",
+  "version": "0.0.1",
+  "description": "Root: Transempiric + Universal + Isomorphic + Spring Boot + Nashorn + JWT + React + Redux + React Router + FLow + LESS + Webpack",
+  "engines": {
+    "node": "9.5.0",
+    "npm": "5.6.x"
+  },
+  "keywords": [
+    "Transempiric",
+    "Universal",
+    "Isomorphic",
+    "Spring Boot",
+    "Nashorn",
+    "JWT",
+    "React",
+    "Redux",
+    "React Router",
+    "Flow",
+    "LESS",
+    "Webpack"
+  ],
+  "devDependencies": {
+    "chalk": "2.3.2",
+    "fs-extra": "5.0.0",
+    "react-dev-utils": "^4.0.0"
+  },
+  "scripts": {
+    "build": "npm run build:prod",
+    "build:prod": "npm run build:prod:client && npm run build:ssr",
+    "build:dev": "npm run build:dev:client && npm run build:ssr",
+    "build:prod:client": "node client/bin/client.prod.build.js",
+    "build:dev:client": "node client/bin/client.dev.build.js",
+    "build:ssr": "node ssr/bin/ssr.build.js",
+    "preinstall": "node bin/root.preinstall.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/TransEmpiric/iso-web-template.git"
+  },
+  "author": "Transempiric",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/transempiric/iso-web-template/issues",
+    "email": "issues@transempiric.com"
+  }
+}

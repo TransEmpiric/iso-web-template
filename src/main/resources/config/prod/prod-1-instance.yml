@@ -1,0 +1,10 @@
+#
+# prod-1 instance specific application properties
+#
+
+# ===============================
+# = Application
+# ===============================
+transempiric:
+  app:
+    name: prod-1-transempiric-web-template

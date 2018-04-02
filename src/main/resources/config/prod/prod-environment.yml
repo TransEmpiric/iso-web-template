@@ -1,0 +1,29 @@
+#
+# prod environment specific application properties
+#
+
+# ===============================
+# = Transview
+# ===============================
+transview:
+  pool:
+    initialPoolSize: 10
+    maxPoolSize: 25
+    showPoolStatsCSV: false
+    showPoolStatsLOG: false
+
+# ===============================
+# = Application
+# ===============================
+transempiric:
+  app:
+    name: prod-transempiric-web-template
+    jwt:
+      auth:
+        token:
+          secret: 1AYL0tvH0hTK3lSe
+          expiration: 3600 # In seconds, 1 hour
+      refresh:
+        token:
+          secret: cN9O1VZhbXNOe7y5
+          expiration: 7200 # In seconds, 2 hours

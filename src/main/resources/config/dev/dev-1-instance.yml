@@ -1,0 +1,10 @@
+#
+# dev-1 instance specific application properties
+#
+
+# ===============================
+# = Application
+# ===============================
+transempiric:
+  app:
+    name: dev-1-transempiric-web-template

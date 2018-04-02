@@ -1,0 +1,43 @@
+#
+# dev environment specific application properties
+#
+
+# ===============================
+# = Transview
+# ===============================
+transview:
+  pool:
+    initialPoolSize: 2
+    maxPoolSize: 5
+    showPoolStatsCSV: false
+    showPoolStatsLOG: false
+
+# ===============================
+# = Application
+# ===============================
+transempiric:
+  app:
+    name: dev-transempiric-web-template
+    jwt:
+      auth:
+        token:
+          secret: apGDL2koqH0V2wcI
+          expiration: 86400 # In seconds, 1 day
+      refresh:
+        token:
+          secret: 7rBk4NCX4thETd1S
+          expiration: 172800 # In seconds, 2 days
+
+# ===============================
+# = Logging
+# ===============================
+logging:
+  level:
+    root: WARN
+    org:
+      springframework:
+        security: DEBUG
+        web: DEBUG
+      hibernate: ERROR
+    com:
+      transempiric: DEBUG

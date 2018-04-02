@@ -1,0 +1,79 @@
+buildscript {
+    ext {
+        springBootVersion = '2.0.0.M7'
+    }
+    repositories {
+        mavenCentral()
+        maven { url "https://repo.spring.io/snapshot" }
+        maven { url "https://repo.spring.io/milestone" }
+        maven { url 'http://repo.spring.io/plugins-release' }
+    }
+    dependencies {
+        classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
+        classpath 'io.spring.gradle:propdeps-plugin:0.0.9.RELEASE'
+    }
+}
+
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: 'groovy'
+apply plugin: 'org.springframework.boot'
+apply plugin: 'io.spring.dependency-management'
+apply plugin: 'war'
+apply plugin: 'propdeps'
+apply plugin: 'propdeps-idea'
+
+group = 'com.transempiric.isoWebTemplate'
+version = '0.0.1'
+sourceCompatibility = 1.8
+
+repositories {
+    mavenCentral()
+    maven { url "https://repo.spring.io/snapshot" }
+    maven { url "https://repo.spring.io/milestone" }
+}
+
+configurations {
+    providedRuntime
+}
+
+dependencies {
+    compile('org.springframework.boot:spring-boot-starter-actuator')
+    compile('org.springframework.boot:spring-boot-starter-data-jpa')
+
+    compile('org.springframework.boot:spring-boot-starter-web')
+
+    compile('org.springframework.boot:spring-boot-starter-security')
+    compile 'org.springframework.security:spring-security-rsa:1.0.5.RELEASE'
+
+    compile('org.springframework.boot:spring-boot-starter-mail')
+    compile('org.codehaus.groovy:groovy')
+
+    runtime('org.springframework.boot:spring-boot-devtools')
+    runtime('mysql:mysql-connector-java')
+
+    compileOnly('org.springframework.boot:spring-boot-configuration-processor')
+
+    compile('org.springframework.boot:spring-boot-starter-tomcat')
+
+    compile("com.h2database:h2")
+
+    /********************** JWT *********************/
+    compile('io.jsonwebtoken:jjwt:0.7.0')
+    compile group: 'org.passay', name: 'passay', version: '1.3.0'
+    compile group: 'com.google.guava', name: 'guava', version: '24.0-jre'
+
+    testCompile('org.springframework.boot:spring-boot-starter-test')
+    testCompile('org.springframework.security:spring-security-test')
+    compile("com.transempiric:simple-encryptor:1.0.0")
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '4.6'
+}
+
+bootRun {
+    if (project.hasProperty('jvmArgs')) jvmArgs project.jvmArgs.split('\\s+');
+}
+
+compileJava.dependsOn(processResources)
