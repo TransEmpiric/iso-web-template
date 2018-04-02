@@ -32,26 +32,24 @@ Nashorn Thread Safety problem as well as a tool set for many other issues you ar
 
 ## UI Features
 
-# trans-react
+### trans-react
 > A Server Side Rendering (SSR) Aware React tool set and example. 
 Made up of a Sever Side Rendering (SSR) module, [trans-react-ssr](src/main/trans-react/ssr/README.md)
 and a Client Side Render (BSR) module, [trans-react-client](src/main/trans-react/ssr/README.md).
 
-### Features
 - Isomorphic - Runs on the Nashorn
 - Multi-Modulde Node Build
 - Easy to use Build Scripts
 - React
 - Follows Create React App Closely
 - React Router
-- HOC's for redirects, errors, and secuity
+- HOC's for redirects, errors, and security
 - Redux
 - Flow
 - Webpack
 - Less
 - Stateless JWT Authentication w/ Spring Security
 - Authentication and Token Refresh Flow
-- See trans-react sub-project for details
 - See[trans-react](src/main/trans-react/README.md) sub-project for details
 
 ## Instructions
