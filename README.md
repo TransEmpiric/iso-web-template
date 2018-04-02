@@ -5,7 +5,7 @@
 And if you wish to go anywhere you must run twice as fast as that.<br><br>*— Lewis Carroll
 
 ###### What is this?
-> This a tool set and example of how to create a production capable **`Spring Boot + React + Isomorphic Web Application`**.
+> This is a tool set and example of how to create a production capable **`Spring Boot + React + Isomorphic Web Application`**.
 The example template can render any view on the server or browser identically. One of the major draw backs of using React in Nashorn is thread safety.
 Keeping the Nashorn Engine thread safe and not shared, causes performance issues. The Nashorn Thread Safety problem is solved here by integrating 
 a new Spring View Resolver (`TransView`) with a Blocking Queue Resource Pool of **`THREAD-SAFE WARMED-UP NASHORN ENGINES`**. This repo provides a solution to the 
