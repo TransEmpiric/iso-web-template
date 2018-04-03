@@ -84,7 +84,7 @@ and a Client Side Render (BSR) module, [trans-react-client](src/main/trans-react
 - Less
 - Stateless JWT Authentication w/ Spring Security
 - Token Authentication and Token Refresh Flow
-- See[trans-react](src/main/trans-react/README.md) sub-project for details
+- See [trans-react](src/main/trans-react/README.md) sub-project for details
 
 ## Test User:
 You can login in with the following credentials:
