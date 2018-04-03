@@ -15,20 +15,25 @@ Nashorn Thread Safety problem as well as a tool set for many other issues you ar
 
 ### `How to run the production build`
 
-Checkout the iso-web-template project via git.
+`Checkout the *iso-web-template *project via git.`
+```
+git clone https://github.com/TransEmpiric/iso-web-template.git
+```
 
+`Insall all npm packages and run the global build from the *trans-react* root directory`
 ```
 cd iso-web-template/src/main/trans-react
 npm install
 npm run build
 ```
 
-`You can now serve the trans-react/ssr and trans-react/client apps with Spring Boot.`
+`You can now serve the *trans-react/ssr* and *trans-react/client* modules from the *iso-web-template* root directory with Spring Boot.`
 
 ```
 cd ../../../
 ./gradlew bootRun
 ```
+`With the browser navigate to http://localhost:8080`
 
 ### `How to run the development build`
 `This will run a Webpack dev server`
@@ -44,6 +49,8 @@ npm run dev
 cd ../../../../
 ./gradlew bootRun
 ```
+
+`With the browser navigate to http://localhost:3000 to use the WebpackDevServer`
 
 ## Back-end Features
 
@@ -93,7 +100,7 @@ jdev: I41LikeBeer!
 
 ## Notes:
 The subjects within may be moved to sperate projects eventually and posted on Maven Central or NPM.
-There is a a lot here and not enough time to explain it all.
+There are lot of ideas here and not enough time to explain them all.
 Please take a look and help out if you can.
 
 ❤ From the Transempiric Collective
