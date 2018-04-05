@@ -94,6 +94,7 @@ task nodeBuidClientProd(type: NodeTask) {
     println 'Starting gradle node CLIENT PROD BUILD...'
     script = file('src/main/trans-react/client/bin/client.prod.build.js')
     ignoreExitValue = true
+    dependsOn npmInstall
 }
 
 task nodeBuildSsr(type: NodeTask) {
