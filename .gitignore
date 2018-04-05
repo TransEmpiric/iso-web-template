@@ -33,3 +33,6 @@ nbdist/
 
 ### Node ###
 node_modules
+
+### App ###
+src/main/resources/static

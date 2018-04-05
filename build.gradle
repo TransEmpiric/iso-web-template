@@ -7,10 +7,12 @@ buildscript {
         maven { url "https://repo.spring.io/snapshot" }
         maven { url "https://repo.spring.io/milestone" }
         maven { url 'http://repo.spring.io/plugins-release' }
+        maven { url "https://plugins.gradle.org/m2/" }
     }
     dependencies {
         classpath("org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}")
         classpath 'io.spring.gradle:propdeps-plugin:0.0.9.RELEASE'
+        classpath "com.moowork.gradle:gradle-node-plugin:1.2.0"
     }
 }
 
@@ -22,6 +24,7 @@ apply plugin: 'io.spring.dependency-management'
 apply plugin: 'war'
 apply plugin: 'propdeps'
 apply plugin: 'propdeps-idea'
+apply plugin: 'com.moowork.node'
 
 group = 'com.transempiric.isoWebTemplate'
 version = '0.0.1'
@@ -72,7 +75,52 @@ task wrapper(type: Wrapper) {
     gradleVersion = '4.6'
 }
 
+/*
+ ************************************************************
+ **************** Node Build Task ***************************
+ * Node tasks, useful for project configured  Jenkins deploy
+ ************************************************************/
+node {
+    version = '9.5.0'
+    npmVersion = '5.6.0'
+    distBaseUrl = 'https://nodejs.org/dist'
+    download = true
+    workDir = file("${project.buildDir}/nodejs")
+    npmWorkDir = file("${project.buildDir}/npm")
+    nodeModulesDir = file("${project.projectDir}/src/main/trans-react")
+}
+
+task nodeBuidClientProd(type: NodeTask) {
+    println 'Starting gradle node CLIENT PROD BUILD...'
+    script = file('src/main/trans-react/client/bin/client.prod.build.js')
+    ignoreExitValue = true
+}
+
+task nodeBuildSsr(type: NodeTask) {
+    println 'Starting gradle node SSR PROD BUILD...'
+    script = file('src/main/trans-react/ssr/bin/ssr.build.js')
+    ignoreExitValue = true
+    dependsOn nodeBuidClientProd
+}
+
+task nodeBuildProd() {
+    println 'Starting node PROD Build...'
+    dependsOn nodeBuildSsr
+}
+
+/*
+ ************************************************************
+ **************** Gradle Build Task *************************
+ * Makes build task run all the node task (install and build)
+ ************************************************************/
+build.dependsOn(nodeBuildProd)
+
+/*
+ *************************************************************
+ **************** Spring Boot Task ***************************
+ *************************************************************/
 bootRun {
+    /**************** Allows for passing in JVM args ****************/
     if (project.hasProperty('jvmArgs')) jvmArgs project.jvmArgs.split('\\s+');
 }
 
