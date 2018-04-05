@@ -193,7 +193,7 @@ public class NashornTransViewResourcePool extends TransViewResourcePool<TransVie
                     "(" + transViewAssetManifest.getJsonManifestPath() + ").");
 
             try {
-                manifestResourceContent = objectMapper.readValue(manifestResource.getFile(), new TypeReference<HashMap<String, String>>() {
+                manifestResourceContent = objectMapper.readValue(manifestResource.getInputStream(), new TypeReference<HashMap<String, String>>() {
                 });
             } catch (IOException e) {
                 logger.error("Invalid TransViewAssetManifest configuration, " +

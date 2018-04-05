@@ -26,7 +26,8 @@ public class MvcConfig implements WebMvcConfigurer {
 
     @Override
     public void addResourceHandlers(ResourceHandlerRegistry registry) {
-        registry.addResourceHandler("/static/**").addResourceLocations("classpath:static/");
+        //registry.addResourceHandler("/static/**").addResourceLocations("classpath:static/");
+        registry.addResourceHandler("/static/**").addResourceLocations("classpath:META-INF/resources/static/");
         registry.addResourceHandler("/webjars/**").addResourceLocations("classpath:META-INF/resources/webjars/");
         registry.addResourceHandler("/**").addResourceLocations("classpath:META-INF/");
     }
@@ -41,7 +42,8 @@ public class MvcConfig implements WebMvcConfigurer {
     @Bean
     public ViewResolver reactViewResolver() {
         TransViewTemplateViewResolver viewResolver = new TransViewTemplateViewResolver();
-        viewResolver.setPrefix("templates/");
+        //viewResolver.setPrefix("templates/");
+        viewResolver.setPrefix("classpath:WEB-INF/templates/");
         viewResolver.setSuffix(".tvpl");
 
         return viewResolver;
@@ -145,7 +147,7 @@ public class MvcConfig implements WebMvcConfigurer {
                  * OPTIONAL
                  * Default: "classpath:"
                  ***********************************************************/
-                .setResourceLoaderPath("classpath:")
+                .setResourceLoaderPath("classpath:META-INF/resources")
 
                 /*
                  ***********************************************************
