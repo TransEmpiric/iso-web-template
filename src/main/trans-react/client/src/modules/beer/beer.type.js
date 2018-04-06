@@ -24,7 +24,7 @@
 
 /* @flow */
 export type BeerType = {
-    id?: number,
+    id: number,
     name: string,
     comment: string
 };

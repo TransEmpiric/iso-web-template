@@ -95,14 +95,9 @@ class SignInComponent extends React.Component<Props, State> {
     render() {
         return (
             <div>
-                <div className="row">
-                    <div className="col-sm-6 col-sm-offset-3">
-                        <h1>Sign In</h1>
-                    </div>
-                </div>
+                <div className="trans-title-lg">Sign In</div>
                 {this.authFailedMessage()}
                 <SignInFormComponent
-                    testVal={"hello"}
                     onSubmit={(formValues) => this.submitForm(formValues)}
                 />
             </div>

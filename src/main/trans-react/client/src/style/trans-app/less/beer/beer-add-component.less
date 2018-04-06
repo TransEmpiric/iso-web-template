@@ -22,54 +22,13 @@
  * SOFTWARE.
  */
 
-@import '../trans-common/trans-common-style';
-@import './less/beer/beer-add-component';
-@import './less/beer/beer-list-component';
-@import './less/core/home-component';
-
-html {
-  font-size: 18px;
-  overflow: visible;
-}
-
-body {
-  background-color: @clr-trans-white;
-  font-family: 'Space Mono', sans-serif;
-  margin: 0px;
-  min-height: 100%;
-  min-width: 100%;
-  position: absolute;
-  overflow: visible;
-}
-
-.trans-view {
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  min-height: 100vh;
-  overflow: visible;
-}
-
-.trans-container {
-  align-items: flex-start;
+.beer-add-sub-header {
+  align-items: center;
   display: flex;
   flex-direction: row;
-  flex-wrap: wrap;
-  height: auto;
-  justify-content: center;
-  margin: 0px auto 0px auto;
-  max-width: 1200px;
-  padding: 150px 0px 0px 0px;
+  justify-content: flex-start;
 }
 
-.trans-content {
-  color: @clr-trans-blue-gray-dark;
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  min-height: 100%;
-}
-
-.grid-container {
-  padding: 0rem 2rem 0rem 2rem;
+.beer-list-link {
+  margin: 0px 0px 10px 0px;
 }

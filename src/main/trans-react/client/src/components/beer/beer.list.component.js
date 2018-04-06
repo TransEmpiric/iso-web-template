@@ -58,14 +58,13 @@ class BeerListComponent extends React.Component<Props> {
     }
 
     render() {
-        //this.props.doUpdateBannerIcon('beer');
+        console.log(this.props.beers);
         return (
-            <div className="comments">
-                <h1>Beers</h1>
-                <div>
-                    <Link to="/beer/add" className="btn btn-primary">Add Beer</Link>
-                    {' '}
-                    <button className="btn btn-default" onClick={() => this.handleRefreshBeers()}>Refresh</button>
+            <div className="beer-list-container">
+                <div className="trans-title-lg">Beer List</div>
+                <div className="beer-list-sub-header">
+                    <button data-width='sm' className="trans-btn trans-btn-green beer-list-refresh-button" onClick={() => this.handleRefreshBeers()}>Refresh List</button>
+                    <Link data-width='sm' to="/beer/add" className="trans-hyp-link add-beer-link">Add Beer</Link>
                 </div>
                 { this.props.beers.length === 0
                     ? <p>No Beers yet! You could add one&hellip;?</p>

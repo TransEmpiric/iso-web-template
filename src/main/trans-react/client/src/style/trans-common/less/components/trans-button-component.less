@@ -22,54 +22,57 @@
  * SOFTWARE.
  */
 
-@import '../trans-common/trans-common-style';
-@import './less/beer/beer-add-component';
-@import './less/beer/beer-list-component';
-@import './less/core/home-component';
-
-html {
-  font-size: 18px;
-  overflow: visible;
+.trans-btn {
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 6px;
+  cursor: pointer;
+  display: inline-block;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.11rem;
+  font-weight: 700;
+  height: 2.5rem;
+  line-height: 2.5rem;
+  margin: 0rem;
+  padding: 0rem;
+  text-align: center;
+  touch-action: manipulation;
+  user-select: none;
+  vertical-align: middle;
+  white-space: nowrap;
+  width: 100%;
 }
 
-body {
-  background-color: @clr-trans-white;
-  font-family: 'Space Mono', sans-serif;
-  margin: 0px;
-  min-height: 100%;
-  min-width: 100%;
-  position: absolute;
-  overflow: visible;
-}
-
-.trans-view {
+.trans-btn-with-icon:extend(.trans-btn) {
+  align-items: center;
   display: flex;
-  flex: 1;
-  flex-direction: column;
-  min-height: 100vh;
-  overflow: visible;
-}
-
-.trans-container {
-  align-items: flex-start;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  height: auto;
   justify-content: center;
-  margin: 0px auto 0px auto;
-  max-width: 1200px;
-  padding: 150px 0px 0px 0px;
 }
 
-.trans-content {
-  color: @clr-trans-blue-gray-dark;
-  display: flex;
-  flex: 1;
-  flex-direction: column;
-  min-height: 100%;
+.trans-btn-icon {
+  font-size: 1.22rem;
+  margin-left: 0.44rem;
+  padding-bottom: 0.32rem;
 }
 
-.grid-container {
-  padding: 0rem 2rem 0rem 2rem;
+.trans-btn-orange {
+  background-color: @clr-trans-orange;
+  border-color: @clr-trans-orange-light;
+  color: @clr-trans-white;
+}
+
+.trans-btn-green {
+  background-color: @clr-trans-green-olive;
+  color: @clr-trans-white;
+}
+
+.trans-btn-blue-gray {
+  background-color: @clr-trans-blue-gray-dark;
+  color: @clr-trans-white;
+}
+
+.trans-btn-danger {
+  background-color: @clr-trans-red-danger-background;
+  border-color: @clr-trans-red-danger-border;
+  color: @clr-trans-white;
 }

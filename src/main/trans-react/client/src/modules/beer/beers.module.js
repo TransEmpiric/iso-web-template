@@ -55,7 +55,7 @@ export default function reducer(beerState: BeerState = defaultBeerState, action:
         case 'ADD_BEER':
             return {
                 status: 'stale',
-                data: beerState.data.concat(action.payload),
+                data: [...beerState.data, action.payload]
             };
 
         case 'BEERS_REFRESHED':

@@ -24,11 +24,12 @@
 
 /* @flow */
 import React from 'react';
-import {Link, withRouter} from 'react-router-dom';
 import {connect} from 'react-redux';
+import {Link, withRouter} from 'react-router-dom';
 
 import logger from '../../utils/logger.util';
 import {saveBeer} from '../../modules/beer/beers.module';
+import BeerAddFormComponent from '../form/beer.add.form.component';
 
 const source = "beer.add.component.js";
 
@@ -37,16 +38,14 @@ type Props = {
     history: {
         push: (path: string) => void
     }
-};
+}
 
 class BeerAddComponent extends React.Component<Props> {
-    nameInput : ?HTMLInputElement;
-    commentInput: ?HTMLInputElement;
-
     addBeer(name : string, comment : string) : void {
+        console.log("addBeer......");
         this.props.dispatch(saveBeer(name, comment))
             .then(
-                success => {
+                () => {
                     logger.error({func: "addBeer()", message: "SUCCESS, redirecting to home"}, source);
                     this.props.history.push('/beer/list');
                 },
@@ -56,42 +55,37 @@ class BeerAddComponent extends React.Component<Props> {
             );
     }
 
-    onSubmit(e) {
-        e.preventDefault();
+    submitForm(formValues) {
+        console.log("submit addBeerForm......");
 
-        const name = this.nameInput;
-        const comment = this.commentInput;
+        const name = formValues.name ? formValues.name : '';
+        const comment = formValues.comment ? formValues.comment : '';
 
-        if (name && comment) {
-            this.addBeer(name.value.trim(), comment.value.trim());
-            name.value = '';
-            comment.value = '';
+        if (name.length === 0) {
+            return;
         }
+
+        this.addBeer(name, comment);
     }
 
     render() {
         return (
-            <form onSubmit={e => this.onSubmit(e)}>
-                <p>Add A Brew</p>
-                <div className="form-group">
-                    <label htmlFor="name">Name</label>
-                    <input id="name" className="form-control" type="text" size={50} ref={el => { this.nameInput = el; }} />
+            <div className="beer-list-container">
+                <div className="trans-title-lg">Add Some More Beer</div>
+                <div className="beer-add-sub-header">
+                    <Link data-width='sm' to="/beer/list" className="trans-hyp-link beer-list-link">Beer List</Link>
                 </div>
-                <div className="form-group">
-                    <label htmlFor="comment">Comment</label>
-                    <input id="comment" className="form-control" type="text" size={50} ref={el => { this.commentInput = el; }} />
-                </div>
-                <Link to="/" className="btn btn-primary">Back</Link>
-                {' '}
-                <button className="btn btn-success" type="submit">Submit</button>
-            </form>);
+                <BeerAddFormComponent
+                    testVal={"hello"}
+                    onSubmit={(formValues) => this.submitForm(formValues)}
+                />
+            </div>
+        );
     }
 }
 
 function mapStateToProps(state) {
-    return {
-        publicKey: state.beer.publicKey
-    };
+    return { };
 }
 
 export default withRouter(connect(mapStateToProps)(BeerAddComponent));

@@ -32,37 +32,40 @@ type Props = {
     handleSubmit: () => void
 } & FormProps
 
-class SignInFormComponent extends React.Component<Props> {
+class BeerAddFormComponent extends React.Component<Props> {
     props: Props;
 
     render() {
+        console.log("Hit SignInFormComponent render");
+        console.log(this.props);
+
         const { handleSubmit, pristine, onSubmit, submitting } = this.props;
         return (
             <form onSubmit={handleSubmit(onSubmit)}>
                 <Field
-                    name="username"
+                    name="name"
                     component={InputTextComponent}
                     type="text"
-                    label="Username"
-                    placeholder="Username"
-                    icon="account-box"
+                    label="Beer Name"
+                    placeholder="Beer Name"
+                    icon="beer"
                 />
                 <Field
-                    name="password"
+                    name="comment"
                     component={InputTextComponent}
-                    type="password"
-                    label="Password"
-                    placeholder="Password"
-                    icon="lock"
+                    type="text"
+                    label="Your Comment"
+                    placeholder="Your Comment"
+                    icon="pencil"
                 />
-                <button  disabled={pristine || submitting} type="submit" className="trans-btn trans-btn-green">Sign In</button>
+                <button  disabled={pristine || submitting} type="submit" className="trans-btn trans-btn-green">Add Beer</button>
             </form>
         );
     }
 }
 
 const formConfiguration = {
-    form: 'sign-in-form'
+    form: 'beer-add-form'
 };
 
-export default reduxForm(formConfiguration)(SignInFormComponent);
+export default reduxForm( formConfiguration )( BeerAddFormComponent );

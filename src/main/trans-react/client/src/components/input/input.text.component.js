@@ -24,16 +24,43 @@
 
 import React from 'react';
 
-export const InputTextComponent = ({ label, type, input }) => {
+import transSelectorUtil from "../../utils/trans.selector.util";
+
+export const InputTextComponent = ({ label, type, input, icon }) => {
+    function handleInputTextComponentOnFocus(event) {
+        console.log(event);
+        let parentElement = event.target.parentNode;
+        let iconElements = parentElement.getElementsByClassName('trans-input-icon');
+
+        for (let i = iconElements.length; i--; ) {
+            transSelectorUtil.addClass('highlight', iconElements[i]);
+        }
+    }
+
+    function handleInputTextComponentOnBlur(event) {
+        console.log(event);
+        let parentElement = event.target.parentNode;
+        let iconElements = parentElement.getElementsByClassName('trans-input-icon');
+
+        for (let i = iconElements.length; i--; ) {
+            transSelectorUtil.removeClass('highlight', iconElements[i]);
+        }
+    }
+
     return (
-        <div className="col-sm-6 col-sm-offset-3 form-group">
-            <label>{label}</label>
-            <input
-                {...input}
-                placeholder={label}
-                type={type}
-                className="form-control"
-            />
+        <div data-max-width="xl" className="trans-input-container">
+            <div className="trans-input-with-icon">
+                <sapn className={"mdi mdi-" + icon + " trans-input-icon "}/>
+                <input
+                    {...input}
+                    placeholder={label}
+                    type={type}
+                    className="trans-input-field"
+                    onFocus={ handleInputTextComponentOnFocus }
+                    onBlur={ handleInputTextComponentOnBlur }
+                    ref={el => { this.nameInput = el; }}
+                />
+            </div>
         </div>
     );
 };

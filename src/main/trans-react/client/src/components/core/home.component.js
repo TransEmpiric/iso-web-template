@@ -25,12 +25,11 @@
 
 /* @flow */
 import React from 'react';
-import {Link, withRouter} from 'react-router-dom';
+import { withRouter } from 'react-router-dom';
 import {connect} from 'react-redux';
 
 import {doUpdateBanner} from "../../modules/app/app.module";
 import type {BeerType} from "../../modules/beer/beer.type";
-import {authenticated, doLogin} from "../../modules/auth/auth.module";
 
 type Props = {
     status: string,

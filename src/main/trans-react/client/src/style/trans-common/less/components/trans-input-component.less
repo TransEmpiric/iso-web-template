@@ -1,0 +1,185 @@
+/*
+ * MIT License
+ *
+ * Copyright (c) 2018 Transempiric
+ *
+ * Permission is hereby granted, free of charge, to any person obtaining a copy
+ * of this software and associated documentation files (the "Software"), to deal
+ * in the Software without restriction, including without limitation the rights
+ * to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+ * copies of the Software, and to permit persons to whom the Software is
+ * furnished to do so, subject to the following conditions:
+ *
+ * The above copyright notice and this permission notice shall be included in all
+ * copies or substantial portions of the Software.
+ *
+ * THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+ * IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+ * FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+ * AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+ * LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+ * OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+ * SOFTWARE.
+ */
+
+.trans-input-container {
+  background-color: @clr-trans-white;
+  background-image: none;
+  color: @clr-trans-blue-gray;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 0.85rem;
+  padding: 0rem;
+  position: relative;
+}
+
+.trans-input {
+  align-items: center;
+  display: flex;
+  justify-content: flex-start;
+  white-space: nowrap;
+}
+
+.trans-input-with-icon {
+  padding-right: 3rem;
+}
+
+.trans-input-template() {
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, webkit-box-shadow ease-in-out 0.15s;
+  background-image: none;
+  border: 1px solid @clr-trans-gray-light-input-border;
+  border-radius: 6px;
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075);
+  color: @clr-trans-blue-gray;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  height: 2rem;
+  line-height: 1.2rem;
+  outline: none;
+  padding: 0.11rem 0.56rem 0.11rem 2.33rem;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  width: 100%;
+}
+
+.trans-input > [type='text'] {
+  .trans-input-template();
+}
+
+.trans-input > [type='password'] {
+  .trans-input-template();
+}
+
+.trans-input > [type='email'] {
+  .trans-input-template();
+}
+
+.trans-input-with-icon > [type='text'] {
+  .trans-input-template();
+}
+
+.trans-input-with-icon > [type='password'] {
+  .trans-input-template();
+}
+
+.trans-input-with-icon > [type='email'] {
+  .trans-input-template();
+}
+
+.trans-input-with-icon.error > [type='text'] {
+  border-color: @clr-trans-red-err-input;
+}
+
+.trans-input-with-icon.error > [type='password'] {
+  border-color: @clr-trans-red-err-input;
+}
+
+.trans-input > [type='checkbox'] {
+  align-self: center;
+  margin: 0rem;
+  padding: 0rem;
+}
+
+.trans-input-text-area {
+  -o-transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075);
+  -webkit-transition: border-color ease-in-out 0.15s, webkit-box-shadow ease-in-out 0.15s;
+  background-image: none;
+  border: 1px solid @clr-trans-gray-light-input-border;
+  border-radius: 6px;
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075);
+  box-sizing: border-box;
+  color: @clr-trans-blue-gray;
+  height: auto;
+  line-height: 1rem;
+  outline: none;
+  padding: 2rem;
+  transition: border-color ease-in-out 0.15s, box-shadow ease-in-out 0.15s;
+  width: 100%;
+}
+
+.trans-input-text-area > textarea {
+  background-image: none;
+  border: 0px;
+  box-sizing: border-box;
+  color: @clr-trans-blue-gray;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1rem;
+  line-height: 1.2rem;
+  max-height: 100%;
+  min-width: 100%;
+  outline: none;
+  padding: 0rem;
+  resize: none;
+}
+
+.trans-input .checkbox-label {
+  padding: 0rem 1rem 0rem 0rem;
+  white-space: nowrap;
+}
+
+.trans-input-focus() {
+  -webkit-box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075), 0px 0px 8px rgba(102, 175, 233, 0.6);
+  border-color: @clr-trans-blue-light;
+  box-shadow: inset 0px 1px 1px rgba(0, 0, 0, 0.075), 0px 0px 8px rgba(102, 175, 233, 0.6);
+  outline: 0rem;
+}
+
+.trans-input input:focus {
+  .trans-input-focus();
+}
+
+.trans-input-with-icon input:focus {
+  .trans-input-focus();
+}
+
+.trans-input.error input:focus {
+  border-color: @clr-trans-red-err-input;
+}
+
+.trans-input-with-icon.error input:focus {
+  border-color: @clr-trans-red-err-input;
+}
+
+.trans-input-with-icon .trans-input-icon {
+  -o-transition: color ease-in-out 0.15s;
+  -webkit-transition: color ease-in-out 0.15s;
+  color: @clr-trans-gray-light-icon;
+  font-size: 1rem;
+  padding: 0.47rem 0.56rem 0.56rem 0.56rem;
+  position: absolute;
+  transition: color ease-in-out 0.15s;
+}
+
+.trans-input-with-icon.error .trans-input-icon {
+  color: @clr-trans-red-err-input;
+}
+
+.trans-input-with-icon .trans-input-icon.highlight {
+  color: @clr-trans-blue-light;
+}
+
+.trans-input-with-icon.error .trans-input-icon.highlight {
+  color: @clr-trans-red-err-input;
+}
