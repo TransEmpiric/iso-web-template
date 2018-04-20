@@ -5,7 +5,7 @@
 - TransViewTemplateView.java: New Spring Template Integration
 - TransViewTemplateViewResolver.java: New Spring Template Integration 
 - TransViewTemplateConfigurer.java - New Spring Integration
-- TransViewAssetManifest.java: Reads a JSON asset manifest file.
+- TransViewAssetManifest.java: Reads a JSON asset manifest file
 
 ## Trans View Options
 
@@ -111,7 +111,8 @@ As seen in `webTemplate/config/web/MvcConfig.java`
                 /*
                  ***********************************************************
                  **************** resourceLoader  **************************
-                 * Spring ResourceLoader for retrieving JavaScript Files.
+                 * Spring ResourceLoader for retrieving JavaScript Files
+                 * and templates.
                  * OPTIONAL
                  * Default: new DefaultResourceLoader()
                  ***********************************************************/
@@ -121,7 +122,7 @@ As seen in `webTemplate/config/web/MvcConfig.java`
                  ***********************************************************
                  **************** resourceLoaderPath  **********************
                  * Spring Convention, used as prefix when loading templates
-                 * and Javascript files with a ResourceLoader
+                 * and Javascript files with a ResourceLoader.
                  * e.g. "file:" | "http:" | "classpath:" | none
                  * OPTIONAL
                  * Default: "classpath:"
@@ -163,10 +164,6 @@ As seen in `webTemplate/config/web/MvcConfig.java`
                  * precedence parameter for each addition.
                  * The scripts will be evaluated by Nashorn in ascending
                  * order of their precedence (1, 2, 3. ...).
-                 * Note: showPoolStatsCSV and showPoolStatsLOG can not both
-                 * be set to true
-                 * REQUIRED
-                 * Default: false
                  ***********************************************************/
                 .setTransViewAssetManifest(
                         new TransViewAssetManifest("static/asset-manifest.json")
